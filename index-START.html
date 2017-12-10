@@ -65,7 +65,18 @@
       // console.count(e);
       // loop over all images and find where they should pop out
       sliderImages.forEach(slideImage => {
-        const slideInAt = (window.scrollY + window.innerHeight);
+        // halfway through image
+        const slideInAt = (window.scrollY + window.innerHeight) - slideImage.height / 2;
+        // console.log(slideInAt);
+        // bottom of the image
+        const imageBottom = slideImage.offsetTop + slideImage.height;
+        const isHalfShown = slideInAt > slideImage.offsetTop;
+        const isNotScrolledPast = window.scrollY < imageBottom;
+        if(isHalfShown && isNotScrolledPast) {
+          slideImage.classList.add('active');
+        } else {
+          slideImage.classList.remove('active');          
+        }
       });
     }
 
