@@ -61,11 +61,15 @@
     const sliderImages = document.querySelectorAll('.slide-in');
 
     function checkSlide(e) {
-      console.log(e);
-      console.count(e);
+      // console.log(e);
+      // console.count(e);
+      // loop over all images and find where they should pop out
+      sliderImages.forEach(slideImage => {
+        const slideInAt = (window.scrollY + window.innerHeight);
+      });
     }
 
-    window.addEventListener('scroll', checkSlide);
+    window.addEventListener('scroll', debounce(checkSlide));
 
   </script>
 
